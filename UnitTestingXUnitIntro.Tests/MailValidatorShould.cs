@@ -30,5 +30,18 @@ namespace UnitTestingXUnitIntro.Tests
             //Assert
             Assert.False(isValid);
         }
+
+        //dos test distintos con diferentes tests cases
+        [Theory]
+        [InlineData("Alejandroasd@gmail", false)]
+        [InlineData("Alejandroasd@gmail.com", true)]
+        public void ValidateEmail2(string emailAddress, bool expected) {
+            //arrange
+            var mailValidator = new MailValidator();
+            //act
+            bool isValid = mailValidator.IsValidEmail(emailAddress);
+            //Assert
+            Assert.Equal(isValid, expected);
+        }
     }
 }
