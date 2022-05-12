@@ -19,5 +19,16 @@ namespace UnitTestingXUnitIntro.Tests
             //Assert
             Assert.True(isValid);
         }
+
+        [Fact]
+        public void InvalidateInvalidEmails() {
+            //Arrange
+            var mailValidator = new MailValidator();
+            string emailAddress = "Alejandroasd@gmail";
+            //Act
+            bool isValid = mailValidator.IsValidEmail(emailAddress);
+            //Assert
+            Assert.False(isValid);
+        }
     }
 }
