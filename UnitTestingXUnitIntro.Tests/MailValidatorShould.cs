@@ -56,6 +56,12 @@ namespace UnitTestingXUnitIntro.Tests
             //Assert
             Assert.Equal(result, expected);
         }
+        [Fact]
+        public void RaiseErrorWhenEmailIsEmpty() {
+            var mailValidator = new MailValidator();
+
+            Assert.Throws<EmailNotProvidedException>(() => mailValidator.IsValidEmail(null));
+        }
 
     }
 }
