@@ -43,5 +43,19 @@ namespace UnitTestingXUnitIntro.Tests
             //Assert
             Assert.Equal(isValid, expected);
         }
+
+        [Theory]
+        [InlineData("Alejandroasd@gmail.com", "Imbox")]
+        [InlineData("Alejandroasd@spam.com", "Spam")]
+        public void IdentifySpam(string emailAddress, string expected)
+        {
+            //arrange
+            var mailValidator = new MailValidator();
+            //act
+            string result = mailValidator.IsSpam(emailAddress);
+            //Assert
+            Assert.Equal(result, expected);
+        }
+
     }
 }
